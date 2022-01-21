@@ -1,10 +1,17 @@
 import React from 'react'
-import { SafeAreaView, Text } from 'react-native'
+import { StyleSheet, SafeAreaView, Text, Platform, StatusBar } from 'react-native'
 
 export default function Pokedex() {
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.AndroidSafeArea}>
             <Text>Pokedex Screen</Text>
         </SafeAreaView>
     )
 }
+
+
+const styles = StyleSheet.create({
+    AndroidSafeArea: {
+      paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
+    }
+  });
