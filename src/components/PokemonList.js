@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, FlatList, ActivityIndicator } from "react-native";
+import { StyleSheet, Text, FlatList, ActivityIndicator, Platform } from "react-native";
 import PokemonCard from "./PokemonCard";
 
 export default function PokemonList(props) {
@@ -32,10 +32,10 @@ export default function PokemonList(props) {
 
 const styles = StyleSheet.create({
   flatListContentContainer: {
-    paddingHorizontal: 5,
+    paddingHorizontal: Platform.OS === "android" ? 30 : 0,
   },
   spinner: {
     marginTop: 20,
-    marginBottom: 60,
+    marginBottom: Platform.OS === "android" ? 90 : 60,
   }
 });
